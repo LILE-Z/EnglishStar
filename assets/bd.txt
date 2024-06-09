@@ -1,0 +1,11 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user TEXT UNIQUE,
+    password TEXT,
+    sesion BOOLEAN
+);
+
+-- Insertar registros de ejemplo en la tabla "users"
+INSERT INTO users (user, password, sesion) VALUES
+    ('Juan Perez', 'password123', 0),
+    ('Maria Gomez', 'qwerty', 0);
