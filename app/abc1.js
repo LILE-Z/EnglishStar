@@ -14,7 +14,7 @@ export default function Home (){
         fontSize: 50,
         color: 'white'
       }}
-      >ABC</Text>
+      >Home</Text>
     </View>
   )
-}
+} 

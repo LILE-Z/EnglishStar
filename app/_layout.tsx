@@ -56,6 +56,13 @@ export default function RootLayout() {
             }}
           />
           <Drawer.Screen
+            name="home"
+            options={{
+              title: "Home",
+              headerShown: true,
+            }}
+          />
+          <Drawer.Screen
             name="abc1"
             options={{
               title: "ABC1",
@@ -63,13 +70,6 @@ export default function RootLayout() {
               headerStyle: {
                 backgroundColor: "red",
               },
-            }}
-          />
-          <Drawer.Screen
-            name="home"
-            options={{
-              title: "Home",
-              headerShown: true,
             }}
           />
         </Drawer>
