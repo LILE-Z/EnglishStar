@@ -62,12 +62,64 @@ export default function RootLayout() {
             }}
           />
           <Drawer.Screen
+            name="abc2"
+            options={{
+              title: "ABC",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#FF6B6B",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <MaterialIcons name="abc" size={24} color="black" />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="abc3"
+            options={{
+              title: "ABC",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#FF6B6B",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <MaterialIcons name="abc" size={24} color="black" />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="abcFinal"
+            options={{
+              title: "ABC Quiz",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#FF6B6B",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <MaterialIcons name="abc" size={24} color="black" />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
             name="registro"
             options={{
               drawerItemStyle: {
                 display: "none",
               },
-              headerShown: false,
+              headerShown: true,
               headerStyle: {
                 backgroundColor: "#FFD700",
               },
@@ -102,6 +154,7 @@ export default function RootLayout() {
               ),
             }}
           />
+
           <Drawer.Screen
             name="voca1"
             options={{

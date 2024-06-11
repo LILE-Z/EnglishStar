@@ -4,10 +4,10 @@ import { Dialog, Button } from '@rneui/themed';
 import * as Speech from 'expo-speech';
 import { Ionicons } from '@expo/vector-icons';
 import { Video } from 'expo-av';
-
+import { useRouter } from 'expo-router';
 const AlphabetPage = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
-
+  const router = useRouter();
   const speakAlphabet = () => {
     const introText = "¡Hola, niños! Hoy vamos a aprender sobre el abecedario en inglés. El abecedario inglés tiene 26 letras, desde la A hasta la Z. Cada letra tiene su propio sonido y se usa para formar palabras. Vamos a practicar juntos y aprender a reconocer las letras y sus sonidos. ¿Estás listo? ¡Comencemos!";
     const alphabet = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z';
@@ -48,7 +48,9 @@ const AlphabetPage = () => {
           useNativeControls
           resizeMode="contain"
         />
-        <TouchableOpacity style={styles.nextButton}>
+        <TouchableOpacity style={styles.nextButton}
+          onPress={() => router.push('abc2')}
+        >
           <Text style={styles.nextButtonText}>Next</Text>
           <Ionicons name="moon" size={24} color="white" style={styles.moonIcon} />
         </TouchableOpacity>
