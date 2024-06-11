@@ -10,10 +10,10 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Gesture } from "react-native-gesture-handler";
-
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -36,7 +36,22 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <Drawer initialRouteName="index">
+        <Drawer
+          initialRouteName="index"
+          screenOptions={{
+            drawerStyle: {
+              backgroundColor: "#FFD700",
+            },
+            drawerLabelStyle: {
+              fontFamily: "SpaceMono",
+              fontSize: 18,
+              color: "#000",
+            },
+            drawerActiveBackgroundColor: "#FF6B6B",
+            drawerActiveTintColor: "#fff",
+            drawerInactiveTintColor: "#000",
+          }}
+        >
           <Drawer.Screen
             name="index"
             options={{
@@ -52,7 +67,11 @@ export default function RootLayout() {
               drawerItemStyle: {
                 display: "none",
               },
-              headerShown: true,
+              headerShown: false,
+              headerStyle: {
+                backgroundColor: "#FFD700",
+              },
+              headerTintColor: "#000",
             }}
           />
           <Drawer.Screen
@@ -60,16 +79,55 @@ export default function RootLayout() {
             options={{
               title: "Home",
               headerShown: true,
+              headerStyle: {
+                backgroundColor: "#FFD700",
+              },
+              headerTintColor: "#000",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="home" color={color} size={size} />
+              ),
             }}
           />
           <Drawer.Screen
             name="abc1"
             options={{
-              title: "ABC1",
+              title: "ABC",
               headerShown: true,
               headerStyle: {
-                backgroundColor: "red",
+                backgroundColor: "#FF6B6B",
               },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <MaterialIcons name="abc" size={24} color="black" />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca1"
+            options={{
+              title: "Vocabulary 1",
+              headerShown: true,
+              headerStyle: {
+                backgroundColor: "#8E44AD",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca2"
+            options={{
+              title: "Vocabulary 2",
+              headerShown: true,
+              headerStyle: {
+                backgroundColor: "#4CAF50",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
             }}
           />
         </Drawer>

@@ -37,7 +37,7 @@ function LoginScreen() {
       );
 
       if (result.length > 0) {
-        router.push('/menu');
+        router.push('/home');
       }
     } catch (error) {
       console.error("Error al verificar la sesión:", error);
@@ -62,7 +62,7 @@ function LoginScreen() {
           [user]
         );
 
-        router.push('/menu');
+        router.push('/home');
       } else {
         ToastAndroid.show('Credenciales incorrectas. Por favor, verifica tus datos e intenta nuevamente.', ToastAndroid.LONG);
       }

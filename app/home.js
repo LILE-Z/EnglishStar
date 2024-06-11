@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useRouter } from 'expo-router';
 
-const Card = ({ imageSrc, title, subtitle, buttonColor, overlayColor }) => {
+const Card = ({ imageSrc, title, subtitle, buttonColor, overlayColor, page }) => {
+  const router = useRouter();
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.card}>
@@ -12,7 +15,10 @@ const Card = ({ imageSrc, title, subtitle, buttonColor, overlayColor }) => {
       <View style={[styles.overlay, { backgroundColor: overlayColor }]}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.subtitle}>{subtitle}</Text>
-        <TouchableOpacity style={[styles.button, { backgroundColor: buttonColor }]}>
+        <TouchableOpacity
+          style={[styles.button, { backgroundColor: buttonColor }]}
+          onPress={() => router.push(page)}
+        >
           <Text style={styles.buttonText}>Get Started</Text>
           <Ionicons name="arrow-forward" size={20} color="white" style={styles.buttonIcon} />
         </TouchableOpacity>
@@ -24,29 +30,32 @@ const Card = ({ imageSrc, title, subtitle, buttonColor, overlayColor }) => {
 const App = () => {
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <Card
-        imageSrc="https://ooliteracy.com/wp-content/uploads/2023/04/Feature-Image-for-Alphabet-Sequencing-Blog-Post.png"
-        title="Basics Juniors"
-        subtitle="Alphabet, Vocabulary Begginers , Numbers"
-        buttonColor="#FF6B6B"
-        overlayColor="#FFE9E9"
-      />
-      <Card
-        imageSrc="https://www.hola.com/imagenes/estar-bien/20180629125821/el-significado-de-los-colores-de-las-frutas-cs/0-577-509/frutascolores-t.jpg"
-        title="Vocabulary 1"
-        subtitle="Fruits and Vegtables , Animals"
-        buttonColor="#8E44AD"
-        overlayColor="#F8E1FF"
-      />
-      <Card
-        imageSrc="https://in2english.net/wp-content/uploads/2020/03/my-family2.jpg"
-        title="Vocabulary 2"
-        subtitle="Family, Colors"
-        buttonColor="#F1C40F"
-        overlayColor="#FFF5CC"
-      />
-    </View>
+      <View style={styles.container}>
+        <Card
+          imageSrc="https://ooliteracy.com/wp-content/uploads/2023/04/Feature-Image-for-Alphabet-Sequencing-Blog-Post.png"
+          title="Basics Juniors"
+          subtitle="Alphabet, Vocabulary Begginers , Numbers"
+          buttonColor="#FF6B6B"
+          overlayColor="#FFE9E9"
+          page="/abc1"
+        />
+        <Card
+          imageSrc="https://www.hola.com/imagenes/estar-bien/20180629125821/el-significado-de-los-colores-de-las-frutas-cs/0-577-509/frutascolores-t.jpg"
+          title="Vocabulary 1"
+          subtitle="Fruits and Vegtables , Animals"
+          buttonColor="#8E44AD"
+          overlayColor="#F8E1FF"
+          page="/voca1"
+        />
+        <Card
+          imageSrc="https://in2english.net/wp-content/uploads/2020/03/my-family2.jpg"
+          title="Vocabulary 2"
+          subtitle="Family, Colors"
+          buttonColor="#F1C40F"
+          overlayColor="#FFF5CC"
+          page="/voca2"
+        />
+      </View>
     </ScrollView>
   );
 };
