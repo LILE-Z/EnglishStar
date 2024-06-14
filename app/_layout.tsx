@@ -112,6 +112,57 @@ export default function RootLayout() {
               ),
             }}
           />
+          <Drawer.Screen
+            name="voca1_2"
+            options={{
+              title: "Vocabulary 1",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#8E44AD",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca1_3"
+            options={{
+              title: "Vocabulary 1",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#8E44AD",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca1F"
+            options={{
+              title: "Vocabulary 1",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#8E44AD",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
 
           <Drawer.Screen
             name="registro"
@@ -119,7 +170,7 @@ export default function RootLayout() {
               drawerItemStyle: {
                 display: "none",
               },
-              headerShown: true,
+              headerShown: false,
               headerStyle: {
                 backgroundColor: "#FFD700",
               },
