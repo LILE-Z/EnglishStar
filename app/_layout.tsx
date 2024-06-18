@@ -14,8 +14,69 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { Gesture } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Share, Linking, Platform, Alert, View } from "react-native";
+import {
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+function CustomDrawerContent(props: any) {
+  const handleShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          "¡Hola! Soy un pequeño astronauta en busca de conocimiento estelar. Me encantaría recibir ayuda adicional para aprender más sobre el fascinante universo de las Matemáticas. ¡Juntos podemos alcanzar las estrellas del saber! 🚀✨",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  };
+
+  return (
+    <DrawerContentScrollView {...props}>
+      {/* Resto del contenido del Drawer */}
+      <DrawerItemList {...props} />
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-around",
+          marginVertical: 20,
+        }}
+      >
+        <Ionicons
+          name="call"
+          size={24}
+          color="black"
+          onPress={() => {
+            if (Platform.OS === "android") {
+              Linking.openURL("tel:2213274255");
+            } else {
+              Linking.openURL("telprompt:2213274255");
+            }
+          }}
+        />
+        <Ionicons
+          name="share-social"
+          size={24}
+          color="black"
+          onPress={handleShare}
+        />
+      </View>
+    </DrawerContentScrollView>
+  );
+}
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -51,6 +112,7 @@ export default function RootLayout() {
             drawerActiveTintColor: "#fff",
             drawerInactiveTintColor: "#000",
           }}
+          drawerContent={(props) => <CustomDrawerContent {...props} />}
         >
           <Drawer.Screen
             name="index"
@@ -163,7 +225,57 @@ export default function RootLayout() {
               ),
             }}
           />
-
+          <Drawer.Screen
+            name="voca2_2"
+            options={{
+              title: "Vocabulary 2",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#4CAF50",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca2_3"
+            options={{
+              title: "Vocabulary 2",
+              headerShown: true,
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerStyle: {
+                backgroundColor: "#4CAF50",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="voca2F"
+            options={{
+              title: "Vocabulary 2",
+              headerShown: true,
+              headerStyle: {
+                backgroundColor: "#4CAF50",
+              },
+              drawerItemStyle: {
+                display: "none",
+              },
+              headerTintColor: "#fff",
+              drawerIcon: ({ color, size }) => (
+                <Ionicons name="book" color={color} size={size} />
+              ),
+            }}
+          />
           <Drawer.Screen
             name="registro"
             options={{
